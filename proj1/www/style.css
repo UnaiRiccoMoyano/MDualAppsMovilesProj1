@@ -2,7 +2,7 @@ body{
     background-color: rgb(87, 80, 80);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 30px 30px 30px 50px 50px 50px;
+    grid-template-rows: 100px 30px 30px 30px 50px 50px 100px 30px 30px 30px 50px 50px;
 }
 input{
     border-radius: 5px;
@@ -10,7 +10,7 @@ input{
 button{
     border-radius: 5px;
 }
-h1{
+#h1Login{
     grid-column: 2/3;
     grid-row: 1/2;
     text-align: center;
@@ -44,3 +44,26 @@ p{
     grid-row: 6/7;
 }
 
+#h1Register{
+    grid-column: 2/3;
+    grid-row: 7/8;   
+}
+
+#loginRegister{
+    grid-column: 2/3;
+    grid-row: 8/9;
+}
+
+#passwordRegister{
+    grid-column: 2/3;
+    grid-row: 9/10;
+
+}
+#botonFuncionRegister{
+    grid-row: 9/10;
+    grid-column: 3/4;
+}
+#password2Register{
+    grid-column: 2/3;
+    grid-row: 10/11;
+}

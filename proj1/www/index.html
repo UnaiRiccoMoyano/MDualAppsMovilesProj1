@@ -8,12 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>LOGIN</h1>
+    <h1 id="h1Login">LOGIN</h1>
     <input type="text" placeholder="login" id="login">
     <input type="password" id="password" placeholder="password">
     <button onclick="logearme()" id="botonFuncion">Logearme</button>
     <p>No estas registrado todavia? Puedes registrarte facilmente </p> 
-    <a href="register.html" id="botonSecundario"><button>Registrarse</button></a>
+    <h1 id="h1Register">REGISTER</h1>
+    <input type="text" placeholder="User" id="loginRegister">
+    <input type="text" id="passwordRegister" placeholder="password">
+    <input type="text" id="password2Register" placeholder="confirmPassword">
+    <button onclick="registrarme()" id="botonFuncionRegister">Registrarme</button>
+
     <script>
         var diccionarioUsuarios = {
             "Unai":"Unai123",
@@ -35,6 +40,19 @@
                 }else{
                     alert("Tus credenciales son incorrectas");
                 }
+            }
+        }
+        function registrarme(){
+            
+            let inpUser = document.getElementById("loginRegister").value;
+            let inpPwd = document.getElementById("passwordRegister").value;
+            let inpPwd2 = document.getElementById("password2Register").value;
+            if(inpPwd == "" || inpPwd2 == "" || inpUser == ""){
+                alert("Debes rellenar todos los campos");
+            }else if(inpPwd!=inpPwd2){
+                alert("Las password no coinciden");
+            }else{
+                diccionarioUsuarios[inpUser] = inpPwd;
             }
         }
     </script>
