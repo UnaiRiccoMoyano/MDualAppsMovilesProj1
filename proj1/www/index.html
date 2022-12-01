@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>LOGIN</h1>
+    <input type="text" placeholder="login" id="login">
+    <input type="password" id="password" placeholder="password">
+    <button onclick="logearme()" id="botonFuncion">Logearme</button>
+    <p>No estas registrado todavia? Puedes registrarte facilmente </p> 
+    <a href="register.html" id="botonSecundario"><button>Registrarse</button></a>
+    <script>
+        var diccionarioUsuarios = {
+            "Unai":"Unai123",
+            "Andres":"Andres123",
+            "Aleix":"123Aleix",
+        };
+        var keys = Object.keys(diccionarioUsuarios);
+        function logearme(){
+            
+            let inpUser = document.getElementById("login").value;
+            let inpPwd = document.getElementById("password").value;
+            if(inpUser==""){
+                alert("Falta insertar usuario");
+            }else if(inpPwd==""){
+                alert("Falta insertar contraseña");
+            }else{
+                if(inpPwd == diccionarioUsuarios[inpUser]){
+                    alert("Te has logeado correctamente");
+                }else{
+                    alert("Tus credenciales son incorrectas");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
