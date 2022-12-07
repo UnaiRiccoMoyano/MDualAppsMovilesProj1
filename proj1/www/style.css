@@ -56,7 +56,7 @@ p{
 
 #passwordRegister{
     grid-column: 2/3;
-    grid-row: 9/10;
+    grid-row: 10/11;
 
 }
 #botonFuncionRegister{
@@ -65,5 +65,9 @@ p{
 }
 #password2Register{
     grid-column: 2/3;
-    grid-row: 10/11;
+    grid-row: 11/12;
+}
+#emailRegister{
+    grid-column: 2/3;
+    grid-row: 9/10;
 }

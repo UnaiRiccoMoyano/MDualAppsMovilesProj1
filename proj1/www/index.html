@@ -15,16 +15,25 @@
     <p>No estas registrado todavia? Puedes registrarte facilmente </p> 
     <h1 id="h1Register">REGISTER</h1>
     <input type="text" placeholder="User" id="loginRegister">
+    <input type="text" placeholder="email" id="emailRegister">
     <input type="text" id="passwordRegister" placeholder="password">
     <input type="text" id="password2Register" placeholder="confirmPassword">
     <button onclick="registrarme()" id="botonFuncionRegister">Registrarme</button>
 
     <script>
         var diccionarioUsuarios = {
-            "Unai":"Unai123",
-            "Andres":"Andres123",
-            "Aleix":"123Aleix",
-        };
+            Unai:{
+            password:"Unai123",
+            email:"Unai123@gmail.com"
+            },
+            Andres:{
+            password:"Andres123",
+            email:"Andres123@gmail.com"
+            },
+            Aleix:{
+            password:"Aleix123",
+            email:"Aleix123@gmail.com"
+            },};
         var keys = Object.keys(diccionarioUsuarios);
         function logearme(){
             
@@ -35,11 +44,15 @@
             }else if(inpPwd==""){
                 alert("Falta insertar contraseña");
             }else{
-                if(inpPwd == diccionarioUsuarios[inpUser]){
-                    alert("Te has logeado correctamente");
-                }else{
-                    alert("Tus credenciales son incorrectas");
+                for(i in diccionarioUsuarios){
+                    if(diccionarioUsuarios[inpUser]["password"] == diccionarioUsuarios[i]["password"]){
+                        var texto = "Te has logeado correctamente!";
+                        break;
+                    }else{
+                        var texto = "No se ha podido logear, fallo en las credenciales";
+                    }
                 }
+                alert(texto);
             }
         }
         function registrarme(){
@@ -47,14 +60,32 @@
             let inpUser = document.getElementById("loginRegister").value;
             let inpPwd = document.getElementById("passwordRegister").value;
             let inpPwd2 = document.getElementById("password2Register").value;
-            if(inpPwd == "" || inpPwd2 == "" || inpUser == ""){
+            let inpEmail = document.getElementById("emailRegister").value;
+            if(inpPwd == "" || inpPwd2 == "" || inpUser == "" || inpEmail == ""){
                 alert("Debes rellenar todos los campos");
             }else if(inpPwd!=inpPwd2){
                 alert("Las password no coinciden");
             }else{
-                diccionarioUsuarios[inpUser] = inpPwd;
-            }
+                let insertar = false;
+                for(i in diccionarioUsuarios){
+                    if(inpUser != diccionarioUsuarios[i] && inpEmail != diccionarioUsuarios[i]["email"]){
+                        insertar = true;
+                        break;
+                    }
+                }
+                if (insertar){
+                    diccionarioUsuarios[inpUser] = {
+                            "password":inpPwd,
+                            "email":inpEmail
+                        }
+                    alert("Usuario registrado correctamente");
+                }else{
+                    alert("Lo sentimos, el usuario o correo ya estan registrados!")
+                }
         }
+            
+    }
+        
     </script>
 </body>
 </html>
