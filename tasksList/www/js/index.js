@@ -30,11 +30,14 @@ function onDeviceReady() {
 
 let boton = document.getElementById("botonAdd");
 boton.addEventListener("click", add);
+let botonEdit = document.getElementById("botonEnviarEdicion");
+botonEdit.addEventListener("click", enviarEdicion);
 function add(){
     valor = prompt("Que quieres añadir");
-    $("ul").append("<li>"+ valor + "<button class='btnEliminar ui-btn ui-shadow ui-corner-all'>Eliminar</button></li>");
+    $("ul").append("<li><h1>"+ valor + "</h1><button class='btnEliminar ui-btn ui-shadow ui-corner-all'>Eliminar</button><a href='#editar' class='aEditar'><button class='btnEditar ui-btn ui-shadow ui-corner-all'>Editar</button></a></li>");
     $("ul").listview("refresh");
     insertarFuncionBtones()
+    insertarFuncionBtonesEditar()
 }
 
 function insertarFuncionBtones(){
@@ -51,13 +54,20 @@ function insertarFuncionBtonesEditar(){
     $('.btnEditar').each(function(){
         $(this).click(editar)
     })
+    $('.aEditar').each(function(){
+        $(this).click("asd")
+    })
 }
-
+var elemento = null
 function editar(e){
-    let padre = $(e.target).parent().parent()
-    alert(padre.text())
+    elemento = $(e.target).parent().parent().children().first()
+    $('#inputEditar').val(elemento.text())
 }
 
+function enviarEdicion(){
+   let texto = $('#inputEditar').val()
+   elemento.text(texto)
+}
 insertarFuncionBtonesEditar();
 
 insertarFuncionBtones();
